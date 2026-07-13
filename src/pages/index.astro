@@ -1,20 +1,24 @@
 ---
 import ThemeToggle from '@components/ThemeToggle.astro';
-import AboutMe from '@features/aboutMe/AboutMe.astro';
-import Contact from '@features/contact/Contact.astro';
-import Experience from '@features/experience/Experience.astro';
-import Hero from '@features/hero/Hero.astro';
-import Projects from '@features/projects/Projects.astro';
+import TempContent from '@features/hero/TempContent.astro';
 import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout>
-	<main>
-		<Hero />
-		<AboutMe />
-		<Experience />
-		<Projects />
-		<Contact />
-	</main>
-	<ThemeToggle />
+  <main>
+    <TempContent />
+  </main>
+  <ThemeToggle />
+  <style>
+    main {
+      padding: 0px 20px 40px 20px;
+      height: 100%;
+    }
+
+    @media screen and (min-width: 768px) {
+      main {
+        padding: 0px 40px 40px 40px;
+      }
+    }
+  </style>
 </Layout>

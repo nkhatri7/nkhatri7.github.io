@@ -1,0 +1,99 @@
+---
+import BodyText from '@components/BodyText.astro';
+import LinkButton from '@components/LinkButton.astro';
+import TextLink from '@components/TextLink.astro';
+---
+
+<section id="hero-section">
+  <p id="greeting">Hey there, my name is</p>
+  <h1>Neil Khatri.</h1>
+  <h2 id="headline">I build things with code.</h2>
+  <div class="body-text-container">
+    <BodyText>
+      I'm a full-stack software engineer that's passionate about building great
+      digital experiences for users. Currently I'm a senior software engineer at
+      <TextLink text="Mantel" url="https://mantelgroup.com.au/" />
+    </BodyText>
+  </div>
+  <div class="body-text-container">
+    <BodyText>
+      I used to have more content on this website but I felt like it was just a
+      duplicate of my resumé and LinkedIn so I've removed it all.
+    </BodyText>
+  </div>
+  <div class="body-text-container">
+    <BodyText>
+      While I think of something better to do with this website, feel free to
+      have a look at my resumé or connect with me on LinkedIn.
+    </BodyText>
+  </div>
+  <div class="button-container">
+    <LinkButton text="View resume" url="/assets/resume.pdf" />
+    <LinkButton
+      variant="secondary"
+      text="LinkedIn"
+      url="https://www.linkedin.com/in/neilkhatri/"
+    />
+  </div>
+</section>
+
+<style>
+  #hero-section {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding: 4rem 0; */
+  }
+
+  #greeting {
+    font-weight: 500;
+    color: var(--secondary);
+  }
+
+  h1 {
+    color: var(--accent);
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+  }
+
+  #headline {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .body-text-container {
+    max-width: 600px;
+    margin: 0.4rem 0;
+  }
+
+  .button-container {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 0.5rem;
+    row-gap: 1.5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 4rem;
+    }
+    #headline {
+      font-size: 3.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    h1 {
+      font-size: 4.5rem;
+    }
+    #headline {
+      font-size: 4rem;
+    }
+  }
+</style>
