@@ -1,24 +1,124 @@
 ---
-import ThemeToggle from '@components/ThemeToggle.astro';
-import TempContent from '@features/hero/TempContent.astro';
 import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout>
   <main>
-    <TempContent />
+    <div class="intro">
+      <span class="mark" aria-hidden="true"><i></i><i></i></span>
+      <h1>Neil Khatri</h1>
+      <p>Software Engineer @ Ubank</p>
+      <nav aria-label="Professional links">
+        <a class="resume" href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a class="linkedin" href="https://www.linkedin.com/in/neilkhatri/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </nav>
+    </div>
   </main>
-  <ThemeToggle />
-  <style>
-    main {
-      padding: 0px 20px 40px 20px;
-      height: 100%;
-    }
-
-    @media screen and (min-width: 768px) {
-      main {
-        padding: 0px 40px 40px 40px;
-      }
-    }
-  </style>
 </Layout>
+
+<style>
+  main {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .intro { width: 100%; }
+
+  .mark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 32px;
+    animation: rotate-dots 2.5s cubic-bezier(.65, 0, .35, 1) infinite;
+  }
+
+  .mark i {
+    flex: 0 0 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #00404c;
+  }
+
+  @keyframes rotate-dots {
+    0%, 12% { transform: rotate(0deg); }
+    50%, 62% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  h1 {
+    color: #00404c;
+    font-family: 'Asap Condensed', Impact, 'Arial Narrow', sans-serif;
+    font-size: clamp(56px, 11vw, 108px);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    margin-top: 22px;
+    color: #00090a;
+    font-size: clamp(17px, 3vw, 22px);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  a {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    min-height: 48px;
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  a::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: var(--hover-wash);
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 350ms cubic-bezier(.2, .65, .3, 1);
+  }
+
+  .resume { background: #00ffea; color: #00090a; --hover-wash: rgba(0, 9, 10, .1); }
+  .linkedin { background: #00090a; color: #fff; --hover-wash: rgba(255, 255, 255, .35); }
+  a:focus-visible { outline: 3px solid #00404c; outline-offset: 5px; }
+  a:focus-visible::before { clip-path: circle(75% at 50% 50%); }
+
+  @media (hover: hover) {
+    a:hover::before { clip-path: circle(75% at 50% 50%); }
+  }
+
+  @media (max-width: 480px) {
+    nav { flex-direction: column; align-items: center; gap: 12px; }
+    a { width: min(100%, 280px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mark { animation: none; }
+    a::before { transition: none; }
+  }
+</style>

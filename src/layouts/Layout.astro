@@ -1,72 +1,35 @@
----
-import GlobalStyles from '@styles/GlobalStyles.astro';
----
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Neil Khatri - Senior Software Engineer. View Neil's work and experience and get in contact with him."
-    />
-    <meta name="generator" content={Astro.generator} />
-
-    <title>Neil Khatri</title>
-
-    <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.svg" />
+    <meta name="description" content="Neil Khatri — Software Engineer @ Ubank. View my résumé and connect on LinkedIn." />
+    <meta name="theme-color" content="#edfcfa" />
+    <title>Neil Khatri — Software Engineer @ Ubank</title>
+    <link rel="preload" href="/fonts/asap-condensed-extrabold.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/outfit-medium.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body>
-    <slot />
-    <GlobalStyles />
-  </body>
+  <body><slot /></body>
 </html>
 
-<style>
-  :root {
-    --background: #f6f6f6;
-    --primary: #191b19;
-    --secondary: rgba(0, 0, 0, 0.75);
-    --accent: #68a76e;
-    --accent-strong: #4b8751;
-    --link: #4b8751;
-    --secondary-button: #e4e4e4;
-    --secondary-button-hover: #d3d3d3;
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  @font-face {
+    font-family: 'Asap Condensed';
+    src: url('/fonts/asap-condensed-extrabold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
   }
-
-  html,
-  body {
-    font-family:
-      'Inter',
-      system-ui,
-      -apple-system,
-      sans-serif;
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/outfit-medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
   }
-
-  html {
-    scroll-behavior: smooth;
-  }
-  html.dark {
-    --background: #22252f;
-    --primary: #ebebeb;
-    --secondary: rgba(255, 255, 255, 0.7);
-    --link: #68a76e;
-    --secondary-button: #35394d;
-    --secondary-button-hover: #42475e;
-  }
-
-  body {
-    height: 100dvh;
-    max-width: 1440px;
-    margin: 0 auto;
-    position: relative;
-    background-color: var(--background);
-    color: var(--primary);
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
-  }
+  html { background: #edfcfa; color: #00404c; font-family: 'Outfit', Arial, sans-serif; font-weight: 500; -webkit-font-smoothing: antialiased; }
+  body { min-width: 280px; }
+  ::selection { background: #00ffea; color: #00404c; }
 </style>
